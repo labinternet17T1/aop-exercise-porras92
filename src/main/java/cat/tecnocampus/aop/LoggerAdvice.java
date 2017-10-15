@@ -36,17 +36,14 @@ public class LoggerAdvice {
 
 
     @Around("pointcutBach()")
-
     public int[] dealRequestParam(ProceedingJoinPoint jp) {
-
         try {
-            logger.info("Before showing classrooms");
-
-            int[] res = (int[])jp.proceed();
-            logger.info("After showing classrooms");
+            logger.info("before multiple insert");
+            int[] res = (int[]) jp.proceed();
+            logger.info("after multiple insert");
             return res;
         } catch (Throwable throwable) {
-            logger.info("Showing notes: Something went wrong");
+            logger.info("Showing classrooms: Something went wrong");
             throwable.printStackTrace();
             return new int[]{};
         }
